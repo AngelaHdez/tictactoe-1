@@ -12,3 +12,8 @@ App currently contains:
 * Procfile - this tells Heroku or Foreman how to run the application
 * Rakefile- installs the gems and run the server
 
+INSTALAR
+
+	sudo apt-get install libecpg-dev
+	sudo apt-get install postgresql-client
+	sudo apt-get install postgresql
