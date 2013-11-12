@@ -65,3 +65,9 @@ body {
 .message {
   display: inline;
   background-color: transparent; }
+
+.cabecera {
+  text-align: right;
+  background-color: black;
+  color: white;
+  margin-right: 30px; }
