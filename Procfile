@@ -2,4 +2,4 @@
 #web: bundle exec ruby app.rb -p $PORT
 #web: bundle exec ruby app.rb 
 #web: bundle exec thin start -p $PORT
-web: bundle exec rakup confirg.ru -p $PORT
+web: bundle exec rackup confirg.ru -p $PORT
