@@ -1,11 +1,11 @@
 body {
   font-family: Helvetica, Arial, sans-serif;
-  background: url("/images/blackboard.jpg") repeat;
+  background: url("/images/fondo.png") repeat;
   background-size: cover; }
 
 .gameboard {
   width: 500px;
-  margin: 0 auto;
+  margin: 100px auto;
   text-align: center; }
 
 .gamerow {
@@ -51,11 +51,11 @@ body {
   background-color: #c8fe2e; }
 
 .cross {
-  background: url("/images/cross.gif") no-repeat;
+  background: url("/images/python.png") no-repeat;
   background-size: cover; }
 
 .circle {
-  background: url("/images/circle.gif") no-repeat;
+  background: url("/images/ruby.png") no-repeat;
   background-size: cover; }
 
 .base-font, .message {

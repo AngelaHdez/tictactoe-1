@@ -12,8 +12,9 @@ $c: 6;
 $main-font: Helvetica, Arial, sans-serif;
 $message-font: 22px/1;
 
+
 $board-left: 300px;
-$board-margin: 0 auto;
+$board-margin: 100px auto;
 $board-size: 500px;
 
 $opacity:  0.8;
@@ -23,9 +24,9 @@ $cell-height:   $board-size/8.5;
 $cell-margin:  $cell-width/12;
 $cell-padding:  $cell-width/1.3;
 
-$background: "/images/blackboard.jpg";
-$cross:      "/images/cross.gif";
-$circle:     "/images/circle.gif";
+$background: "/images/fondo.png";
+$cross:      "/images/python.png";
+$circle:     "/images/ruby.png";
 
 body       { 
              // background-color: lightgrey; 
@@ -33,6 +34,7 @@ body       {
              background: url($background) repeat; background-size: cover; 
            }
 .gameboard { //margin-left: $board-left; 
+
              width: $board-size;
              margin: $board-margin;
              text-align:center;
