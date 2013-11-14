@@ -180,13 +180,14 @@ get '/humanwins' do
           if (session["juego"] != nil)
           usu_juego = Juego.first(:nombre => session["juego"])
           contador = usu_juego.jugadas + 1
+          usu_juego.p_ganadas = usu_juego.p_ganadas+1
           usu_juego.jugadas = contador
           usu_juego.save
           pp usu_juego
 
           end
           puts "alsdjflasdjflajsdlfkajsdlfjdkfjasdjflkasjdflkasldkfjadkfjljfl"
-          'Human wins'
+          'Bart wins'
         else 
           puts "locuroooooooooooooooooooon"
           redirect '/'
@@ -212,7 +213,7 @@ get '/computerwins' do
 
           end
           puts "alsdjflasdjflajsdlfkajsdlfjdkfjasdjflkasjdflkasldkfjadkfjljfl"
-          'Computer wins'
+          'Bob wins'
         else 
           redirect '/'
         end
