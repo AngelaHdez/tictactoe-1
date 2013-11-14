@@ -172,27 +172,28 @@ get %r{^/([abc][123])?$} do |human|
   haml :game, :locals => { :b => board, :m => ''  }
 end
 
+
 get '/humanwins' do
   puts "/humanwins session="
-  pp session
   begin
     m = if human_wins? then
-        if (session["juego"] != nil)
+          if (session["juego"] != nil)
           usu_juego = Juego.first(:nombre => session["juego"])
-          contador = usu_juego.p_ganadas +1 
-          usu_juego.p_ganadas = contador
           contador = usu_juego.jugadas + 1
           usu_juego.jugadas = contador
           usu_juego.save
           pp usu_juego
 
           end
+          puts "alsdjflasdjflajsdlfkajsdlfjdkfjasdjflkasjdflkasldkfjadkfjljfl"
           'Human wins'
         else 
+          puts "locuroooooooooooooooooooon"
           redirect '/'
         end
     haml :final, :locals => { :b => board, :m => m }
   rescue
+    puts "peppppppppeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
     redirect '/'
   end
 end
@@ -210,17 +211,19 @@ get '/computerwins' do
           pp usu_juego
 
           end
+          puts "alsdjflasdjflajsdlfkajsdlfjdkfjasdjflkasjdflkasldkfjadkfjljfl"
           'Computer wins'
         else 
           redirect '/'
         end
     haml :final, :locals => { :b => board, :m => m }
   rescue
+    puts "peppppppppeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
     redirect '/'
   end
 end
 
-post '/' do
+post '/post' do
   if params[:logout]
     @juego = nil
     session["juego"] = nil
