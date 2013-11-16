@@ -144,6 +144,10 @@ module TicTacToe
   def computer_wins?
     winner == COMPUTER
   end
+
+  def tie?
+    ((winner != COMPUTER) && (winner != HUMAN))
+  end
 end
 
 helpers TicTacToe
@@ -158,7 +162,7 @@ get %r{^/([abc][123])?$} do |human|
       # computer = board.legal_moves.sample
       computer = smart_move
       redirect to ('/humanwins') if human_wins?
-      redirect to('/') unless computer
+      redirect to('/tie') unless computer
       board[computer] = TicTacToe::CROSS
       puts "I played: #{computer}!"
       puts "Tablero:  #{board.inspect}"
@@ -188,6 +192,33 @@ get '/humanwins' do
           end
           puts "alsdjflasdjflajsdlfkajsdlfjdkfjasdjflkasjdflkasldkfjadkfjljfl"
           'Bart wins'
+        else 
+          puts "locuroooooooooooooooooooon"
+          redirect '/'
+        end
+    haml :final, :locals => { :b => board, :m => m }
+  rescue
+    puts "peppppppppeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+    redirect '/'
+  end
+end
+
+get '/tie' do
+  puts "/tie session="
+  begin
+    m = if tie? then
+          if (session["juego"] != nil)
+          usu_juego = Juego.first(:nombre => session["juego"])
+          contador = usu_juego.jugadas + 1
+          usu_juego.p_ganadas = usu_juego.p_ganadas+1
+          usu_juego.jugadas = contador
+          usu_juego.jugar = usu_juego.jugar + 1
+          usu_juego.save
+          pp usu_juego
+
+          end
+          puts "alsdjflasdjflajsdlfkajsdlfjdkfjasdjflkasjdflkasldkfjadkfjljfl"
+          'TIE'
         else 
           puts "locuroooooooooooooooooooon"
           redirect '/'

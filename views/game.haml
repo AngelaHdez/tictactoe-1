@@ -5,6 +5,7 @@
       %input{:type=>"text",:name=>"juego[nombre]",:placeholder=>"nombre"}
       %input{:type=>"hidden",:name=>"juego[p_ganadas]",:value=>"0"}
       %input{:type=>"hidden",:name=>"juego[jugadas]",:value=>"0"}
+      %input{:type=>"hidden",:name=>"juego[jugar]",:value=>"0"}
       %input{:type=>"submit",:value=>"enviar"}
   -else
     %form{:action=>"/post",:method=>"post"}
