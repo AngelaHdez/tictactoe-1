@@ -1,4 +1,5 @@
 .header
+  Introduce un nombre de usuario que no este asignado
   -if (!juego)
     %form{:action=>"/post",:method=>"post"}
       Registrate: 
@@ -10,7 +11,7 @@
       Bienvenido, #{juego}!
       %input{:type=>"hidden",:value=>"1",:name=>"logout"}
       %input{:type=>"submit",:value=>"logout"}
-.button
+.MyButton
   %a{:href=>"/juego"}
     Ranking
 .screen
