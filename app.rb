@@ -183,9 +183,9 @@ get '/humanwins' do
     m = if human_wins? then
           if (session["juego"] != nil)
           usu_juego = Juego.first(:nombre => session["juego"])
-          contador = usu_juego.jugadas + 1
+
           usu_juego.p_ganadas = usu_juego.p_ganadas+1
-          usu_juego.jugadas = contador
+          usu_juego.jugadas = usu_juego.jugadas+1
           usu_juego.save
           pp usu_juego
 
@@ -209,10 +209,9 @@ get '/tie' do
     m = if tie? then
           if (session["juego"] != nil)
           usu_juego = Juego.first(:nombre => session["juego"])
-          contador = usu_juego.jugadas + 1
-          usu_juego.p_ganadas = usu_juego.p_ganadas+1
-          usu_juego.jugadas = contador
-          usu_juego.jugar = usu_juego.jugar + 1
+          
+          usu_juego.p_empatadas = usu_juego.p_empatadas + 1
+          usu_juego.jugadas = usu_juego.jugadas + 1
           usu_juego.save
           pp usu_juego
 
@@ -237,8 +236,9 @@ get '/computerwins' do
     m = if computer_wins? then
           if (session["juego"] != nil)
           usu_juego = Juego.first(:nombre => session["juego"])
-          contador = usu_juego.jugadas + 1
-          usu_juego.jugadas = contador
+          
+          usu_juego.p_perdidas = usu_juego.p_perdidas +1 
+          usu_juego.jugadas = usu_juego.jugadas+1
           usu_juego.save
           pp usu_juego
 
@@ -271,7 +271,7 @@ post '/post' do
       @juego = Aux["nombre"]
       session["juego"] = @juego
     else
-      p "Ya existe un usuario con ese nick!"
+      m = "Es bueno verte de nuevo por aqui"
       @juego = nil
       session["juego"] = nil
       session.clear

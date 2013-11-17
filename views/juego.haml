@@ -10,15 +10,24 @@
 				%th
 				%th Perdidas
 				%th
+				%th Empatadas
+				%th
 				%th Jugadas
 			
 			- @juego.sort_by {|k, v| v}.reverse.each do |juego|
+				
 				%tr
 					%td
 						#{juego.nombre}
 					%td
-						#{juego.p_ganadas}
-					%td        
-						#{juego.jugadas}
 					%td
-						#{juego.jugar}
+						#{juego.p_ganadas}
+					%td
+					%td        
+						#{juego.p_perdidas}
+					%td
+					%td
+						#{juego.p_empatadas}
+					%td
+					%td
+						#{juego.jugadas}
