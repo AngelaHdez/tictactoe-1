@@ -5,6 +5,7 @@ class Juego
   include DataMapper::Resource
   property :id, Serial
   property :nombre, String
+  property :contraseña, String
   property :p_ganadas, Integer
   property :p_perdidas, Integer
   property :p_empatadas, Integer

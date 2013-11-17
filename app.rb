@@ -266,12 +266,19 @@ post '/post' do
     u = Juego.first(:nombre => "#{nick}")
     if u == nil
       usuario = Juego.create(params[:juego])
+
+      usuario.p_perdidas = 0
+      usuario.p_empatadas = 0
+      usuario.p_ganadas = 0
+      usuario.jugadas = 0
+
       usuario.save
       Aux = params[:juego]
       @juego = Aux["nombre"]
       session["juego"] = @juego
+      puts "estoy entrando al if "
     else
-      m = "Es bueno verte de nuevo por aqui"
+      
       @juego = nil
       session["juego"] = nil
       session.clear
