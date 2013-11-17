@@ -229,31 +229,33 @@ get '/tie' do
   end
 end
 
+
 get '/computerwins' do
-  puts "/computerwins"
-  pp session
+  puts "/computerwins session="
   begin
     m = if computer_wins? then
           if (session["juego"] != nil)
           usu_juego = Juego.first(:nombre => session["juego"])
           
-          usu_juego.p_perdidas = usu_juego.p_perdidas +1 
-          usu_juego.jugadas = usu_juego.jugadas+1
+          usu_juego.p_perdidas = usu_juego.p_perdidas + 1
+          usu_juego.jugadas = usu_juego.jugadas + 1
           usu_juego.save
           pp usu_juego
 
           end
-          puts "alsdjflasdjflajsdlfkajsdlfjdkfjasdjflkasjdflkasldkfjadkfjljfl"
-          'Bob wins'
+          puts "coooooooooooooooooooomputerrrrrrrrrrrrrrrrrr"
+          'Bob Wins'
         else 
+          puts "No puedes pasar"
           redirect '/'
         end
     haml :final, :locals => { :b => board, :m => m }
   rescue
-    puts "peppppppppeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+    puts "peppppppppeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee2"
     redirect '/'
   end
 end
+
 
 post '/post' do
   if params[:logout]
