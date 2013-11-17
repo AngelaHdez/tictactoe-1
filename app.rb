@@ -294,16 +294,18 @@ post '/post' do
 
       if a == p_nombre
         if password == c
-          b = "es la misma persona"
-          puts b
+          puts "es la misma persona"
+          @juego = p_nombre
+          session["juego"] = @juego
+          
         else
           puts "no es la misma"
+          @juego = nil
+          session["juego"] = nil
+          session.clear
         end
       end
       
-      @juego = nil
-      session["juego"] = nil
-      session.clear
     end
   end
     redirect '/'
