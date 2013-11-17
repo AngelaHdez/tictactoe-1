@@ -266,6 +266,7 @@ post '/post' do
     nick = params[:juego]
     nick = nick["nombre"]
     u = Juego.first(:nombre => "#{nick}")
+
     if u == nil
       usuario = Juego.create(params[:juego])
 
@@ -280,6 +281,25 @@ post '/post' do
       session["juego"] = @juego
       puts "estoy entrando al if "
     else
+      pass = params[:juego]
+      password = pass["contraseña"]
+      p_nombre = pass["nombre"]
+      pp password
+
+      u = Juego.first(:nombre => "#{nick}")
+      a = u["nombre"]
+      c = u["contraseña"]
+      pp u
+      pp c
+
+      if a == p_nombre
+        if password == c
+          b = "es la misma persona"
+          puts b
+        else
+          puts "no es la misma"
+        end
+      end
       
       @juego = nil
       session["juego"] = nil
